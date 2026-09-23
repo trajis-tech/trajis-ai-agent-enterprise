@@ -1,0 +1,410 @@
+[
+  {
+    "id": "src-openrpa-offline",
+    "url": "https://docs.openiap.io/docs/openrpa/Offline.html",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "7526c5549364e6a9e05424e4dacbbaf0ae7d0b0e8d65cf9a277eee84b4786c0c",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-openrpa-cli",
+    "url": "https://docs.openiap.io/docs/openrpa/CommandLine.html",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "47a20a66b8cb91d6fa7dda478351065a332c5dc161c7e239497463eb4ea2a514",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-openrpa-installer",
+    "url": "https://docs.openiap.io/docs/openrpa/OpenRPA-Installer.html",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "0f9595f612b1718257a28daf8c5cf088bcfc2d577db31908a664cb87a05af130",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-openrpa-plugin",
+    "url": "https://docs.openiap.io/docs/openrpa/Plugin-Model.html",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "16fe1332eb62e0c33a50e308c16c0ca271e02146d52ef22036ea41e590c27155",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-openrpa-license",
+    "url": "https://raw.githubusercontent.com/open-rpa/openrpa/1.4.57.13/LICENSE",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "313e07ca6e7a07b8c6d3450d73f98a14a2f62e3b506995770ff911c085b2e618",
+    "redistribution": "license_notice"
+  },
+  {
+    "id": "src-n8n-custom-nodes",
+    "url": "https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/configuration-examples/specify-custom-nodes-location.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_current_pin_unverified",
+    "content_sha256": "1a393c4289c7dcb2831c0b7ce168b98180130f49e03227438ae64520f0c85bfc",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-n8n-env-nodes",
+    "url": "https://docs.n8n.io/deploy/host-n8n/configure-n8n/basic-configuration/use-environment-variables/nodes.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_current_pin_unverified",
+    "content_sha256": "233e17f48a9fc13ab15945b04b523c86498542f74ec05dc06fd4876c4d39486e",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-n8n-api-workflow",
+    "url": "https://docs.n8n.io/connect/n8n-api/workflow.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_current_pin_unverified",
+    "content_sha256": "7f75765482d0669a81a816483a9e9368b1c9644b3f8574635c0ecbb318c75fc3",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-n8n-api-auth",
+    "url": "https://docs.n8n.io/connect/n8n-api/authentication.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_current_pin_unverified",
+    "content_sha256": "dd07caf1f94f2ce912bf61d2ecfaa63b3e9cfaa39f1479cdb8f9bfbd0cc72028",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-n8n-models",
+    "url": "https://docs.n8n.io/connect/n8n-api/models",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_current_pin_unverified",
+    "content_sha256": "c113b14cce0ff1c084f272802468d91965081d565cc1f252495a3305afda97c8",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-n8n-license",
+    "url": "https://raw.githubusercontent.com/n8n-io/n8n/n8n@2.34.6/LICENSE.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "0fe58248e8cd647359c916bd252fb3b2d2ba1c93178c3959cb8b128d0259e466",
+    "redistribution": "license_notice"
+  },
+  {
+    "id": "src-searxng-search-api",
+    "url": "https://docs.searxng.org/dev/search_api.html",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "7a72dccc703e57710dea1176c72c127057595c9ed4a1cf0eb6fdf26d5a3905c8",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-mcp-lifecycle",
+    "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "039d46dd0fbf47637e7ada84691671b15f2f25e592a71ae55b5ce63945019485",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-mcp-transports",
+    "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "b9034a7488d917af6ec557b3648c771cd36422c55c8af6a986b3417b445a27ca",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-mcp-tools",
+    "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "1f01a578bdb9cf3f0bcfc50f8323f5d0f05215613af6e27475630060224e3666",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-pydantic-tools",
+    "url": "https://ai.pydantic.dev/tools/",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_current_pin_unverified",
+    "content_sha256": "e9d67bfbc095954b1aec55e23adf0bf7e879178f32d3ce38fceeb0ec34fd8e67",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-pydantic-deferred",
+    "url": "https://ai.pydantic.dev/deferred-tools/",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_current_pin_unverified",
+    "content_sha256": "027682bdc186a2c8b6b83a55424e7632e56038871edc26ec20867d7589e3697d",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-pydantic-ai-license",
+    "url": "https://raw.githubusercontent.com/pydantic/pydantic-ai/v2.31.0/LICENSE",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "d16450d56724a6ae6ed612ffd98ff97cf2e1211f8dc3c089fb4a8129549ba63a",
+    "redistribution": "license_notice"
+  },
+  {
+    "id": "src-pydantic-ai-pkg",
+    "url": "portable_python/Lib/site-packages/pydantic_ai/_deferred.py",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_code",
+    "content_sha256": "70c382db5a50b215abd1606e3c7ef1f480590ff90b0887337e9a19ad57cc27f9",
+    "redistribution": "license_notice"
+  },
+  {
+    "id": "src-sqlite-fts5",
+    "url": "https://www.sqlite.org/fts5.html",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "172c465f1bce85b6cb9d26f72c035ff7260924fe8395e675bf3bc4b90ea6d77f",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-sqlite-pragma",
+    "url": "https://www.sqlite.org/pragma.html#pragma_query_only",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "fadd665ffab6708a6feada9c17ae89f4c545be78242bf203eedb14b82fa166e5",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-sqlite-copyright",
+    "url": "https://www.sqlite.org/copyright.html",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "35aebf0c969bb475c39dd494930a436e53f0cd34cdcd09ec188e8995c875cc14",
+    "redistribution": "license_notice"
+  },
+  {
+    "id": "src-python-embed-311",
+    "url": "https://docs.python.org/3.11/using/windows.html#windows-embeddable",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "4c25f2875873f8b7b7f0ef73303310f2dde561eb7ba1afb0b9ebe40a2a9ec940",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-python-embed-314",
+    "url": "https://docs.python.org/3.14/using/windows.html#windows-embeddable",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "3b4860fcf8fe383ac120790016363eff42e2caba6f2ea8204bcd5dae3fa2ec4e",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-python-3119-release",
+    "url": "https://www.python.org/downloads/release/python-3119/",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "f5c90c6e60556ff66bbaed2c66aefaa8aa2f0548298b618cba258fdad2b34cd2",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-python-license",
+    "url": "https://docs.python.org/3/license.html",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "4116570c36811c4f373c6366ebbdb8e4c798c6b1405890b6573f9009b09cb3fc",
+    "redistribution": "license_notice"
+  },
+  {
+    "id": "src-httpx",
+    "url": "https://www.encode.io/httpx/",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_current_pin_unverified",
+    "content_sha256": "848ab2d5992513e2196a50649dd2c5fe1a57b0327742edb1641fb898c79cef97",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-node-releases",
+    "url": "https://nodejs.org/en/about/previous-releases",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "official_fetched",
+    "content_sha256": "5968014373e21761d6ad377edff40ea0d84b6790e7a27e89a59cf4596252023e",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-arch",
+    "url": "docs/LOCAL_AUTOMATION_ARCHITECTURE.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_architecture",
+    "content_sha256": "f39eaa54159f89331bccbaff014bbd1c9eac9b16eaedc0c6fb09e26dae031dc4",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-arch-isolation",
+    "url": "docs/LOCAL_AUTOMATION_ARCHITECTURE.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_architecture",
+    "content_sha256": "6bf6226552d4252c8726b6ff4ade3e6afedc66c4c0ef3e3793336d70e1e51a88",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-arch-broker",
+    "url": "docs/LOCAL_AUTOMATION_ARCHITECTURE.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_architecture",
+    "content_sha256": "155499d0ee4cdc41d3dd0acff359e63c0d1fc5ccd1373aeebe52a33d98300af4",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-code-n8n-client",
+    "url": "app/backend/n8n_client.py",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_code",
+    "content_sha256": "3bbe315645db9eb8e28b4a96bab8ade7454dbdf30ae65e2cd8a6c14c9c177adb",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-code-n8n-lifecycle",
+    "url": "app/backend/n8n_lifecycle.py",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_code",
+    "content_sha256": "ac28621caa976132cdc0887c525a1ce85ceac4ddf254d355041f2d79adc7ed6c",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-code-localopenrpa",
+    "url": "app/integrations/n8n/LocalOpenRpa.node.js",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_code",
+    "content_sha256": "0c393c402622ecfa52e4b9395681b35ad25787abde1281444ff52368f080559f",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-code-modes",
+    "url": "app/backend/agent_app.py",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_code",
+    "content_sha256": "b5d6808c577f193359098c2e238f02c14d29801b0cb141a9d7b1cf0e3997602d",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-code-models-n8n",
+    "url": "app/backend/models_n8n.py",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_code",
+    "content_sha256": "7817858acd223a2e5b12a0b37f7027f73fd68058c0a50d995fdea4a8280e6fdf",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-sqlite-probe",
+    "url": "knowledge_build/_sqlite_probe.py",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "5f71f66945dfd1e650bcaae2a51b4fcc1bbfa7a83d55265a5947da3063624b1a",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-openrpa-extract",
+    "url": "filesystem/system/openrpa/extraction-manifest.json",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_code",
+    "content_sha256": "de40ab61e363a2aa6d3be058ac55067fd9fbeb6804c687159596785ea8e36215",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-mcp-adapter",
+    "url": "docs/LOCAL_AUTOMATION_ARCHITECTURE.md",
+    "retrieved_at": "2026-09-08T12:40:00Z",
+    "verification_status": "project_architecture",
+    "content_sha256": "502c8d937b4a341a40ad663969b75aea6764005ac8c056ba85fc636bb4de59ea",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-n8n-openapi-pin",
+    "url": "filesystem/system/n8n/node_modules/n8n/dist/public-api/v1/openapi.yml",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "280c919900c0ca768f3a1c9d4f422bc4fa58f608ee19f7fe0edf6edb7db0c6a5",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-n8n-package-pin",
+    "url": "filesystem/system/n8n/node_modules/n8n/package.json",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "114a1931b69a9d2240f99431d6e0037caba1e969cb48c593d74cfbfcaac6c9d9",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-n8n-loader-pin",
+    "url": "filesystem/system/n8n/node_modules/n8n/dist/load-nodes-and-credentials.js",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "8da04ee417fd7f210d56c25c5eea7650caeba8797de9082f97a4a58576bab414",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-n8n-core-constants",
+    "url": "filesystem/system/n8n/node_modules/n8n-core/dist/constants.js",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "7d1aee8dc63b04768ccd598e42d0508d709686368bc94c900f9754672808a82d",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-node-license-local",
+    "url": "filesystem/system/node/LICENSE",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "b7e4db2ea0a56bbe064fcc0e5d8903a657bbcb2a85dc519c9a52cb67fe0b9872",
+    "redistribution": "license_notice"
+  },
+  {
+    "id": "src-openrpa-exe-config",
+    "url": "filesystem/system/openrpa/OpenRPA.exe.config",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "62743bf7e209002b643a9d9413b0fa27471b0ca80c22937515947ee69e7fe5bc",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-starlette-meta",
+    "url": "portable_python/Lib/site-packages/starlette-0.47.2.dist-info/METADATA",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "13820ac4916875ff58624a5c0b4c005bf25027cb8ce2ad885d4c6e5b59398dda",
+    "redistribution": "license_notice"
+  },
+  {
+    "id": "src-uvicorn-src",
+    "url": "portable_python/Lib/site-packages/uvicorn/main.py",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "3fcdf15c2f292a3898614ffa8aa74d2d651c764034c2a83b81fe14d428d3192b",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-httpx-src",
+    "url": "portable_python/Lib/site-packages/httpx/_config.py",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "49e2dc867c3fbcf23e4b83a2d0a9d24c6166269669b727eb1b47814c2f3e7b15",
+    "redistribution": "summary_short_quote"
+  },
+  {
+    "id": "src-runtime-probe",
+    "url": "knowledge_build/probes/runtime_probe.json",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "844007420492c7679469688ff8185edcde2fb8ad3f035aa60432c59ec7e2ea79",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-tests-automation",
+    "url": "tests/test_automation.py",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "bff5bbfb17cef6aea4b4087edca9c4495891591683cf7a913b7db2a195913f1b",
+    "redistribution": "project_internal"
+  },
+  {
+    "id": "src-tests-search-mcp",
+    "url": "tests/test_search_mcp.py",
+    "retrieved_at": "2026-09-08T13:03:58Z",
+    "verification_status": "local_runtime_probe",
+    "content_sha256": "9e92e65338efdffd11478fc5e601cebf9230eaf31c84f4055c21f812ea22896a",
+    "redistribution": "project_internal"
+  }
+]

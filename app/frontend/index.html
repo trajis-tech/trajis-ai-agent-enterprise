@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <title>本機 AI Agent</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/frontend/styles.css?v=20260909-local-auto" />
+</head>
+<body class="app-shell">
+  <header class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-mark"><span>A</span></div>
+      <div class="brand-copy"><h1>本機 AI Agent</h1><span class="brand-subtitle">你的專案工作助手</span></div>
+    </div>
+    <nav class="toolbar" aria-label="功能列">
+      <div class="toolbar-item">
+        <button type="button" class="toolbar-btn" data-menu="file" aria-haspopup="menu" aria-expanded="false">檔案</button>
+        <div class="toolbar-menu" id="menu-file" role="menu" hidden>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="newProject">新增專案</button>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="openProject">開啟專案</button>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="exportProject">匯出專案 ZIP</button>
+        </div>
+      </div>
+      <div class="toolbar-item">
+        <button type="button" class="toolbar-btn" data-menu="ai" aria-haspopup="menu" aria-expanded="false">AI 設定</button>
+        <div class="toolbar-menu" id="menu-ai" role="menu" hidden>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="openGateway">公司閘道</button>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="openPrivacy">隱私</button>
+        </div>
+      </div>
+      <div class="toolbar-item">
+        <button type="button" class="toolbar-btn" data-menu="n8n" aria-haspopup="menu" aria-expanded="false">n8n</button>
+        <div class="toolbar-menu" id="menu-n8n" role="menu" hidden>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="n8nRestart">重啟本機 n8n</button>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="n8nKey">設定 n8n API Key</button>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="n8nStop">停止本機 n8n</button>
+        </div>
+      </div>
+      <div class="toolbar-item">
+        <button type="button" class="toolbar-btn" data-menu="help" aria-haspopup="menu" aria-expanded="false">說明</button>
+        <div class="toolbar-menu" id="menu-help" role="menu" hidden>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="openHelp">使用說明</button>
+        </div>
+      </div>
+    </nav>
+    <div class="topbar-end">
+      <div class="mode-segment" role="group" aria-label="工作分頁">
+        <button type="button" class="mode-segment-btn is-active" data-mode="agent">Agent</button>
+        <button type="button" class="mode-segment-btn" data-mode="n8n">n8n</button>
+        <button type="button" class="mode-segment-btn" data-mode="files">專案</button>
+      </div>
+      <div class="badge">v1.0</div>
+    </div>
+  </header>
+
+  <section class="workspace-ribbon" aria-label="工作區導覽">
+    <div class="ribbon-context">
+      <span class="ribbon-eyebrow">目前資料</span>
+      <strong id="projectName">尚未開啟專案</strong>
+      <span id="projectMeta">請新增或開啟專案後再下指令</span>
+    </div>
+    <div class="ribbon-actions">
+      <button type="button" class="ghost" data-action="newProject">新增專案</button>
+      <button type="button" class="ghost" data-action="openProject">開啟專案</button>
+      <button type="button" class="ghost" data-action="openGateway">公司閘道</button>
+      <button type="button" class="ghost" id="undoBtn">復原本回合</button>
+      <button type="button" class="ghost" id="openN8nBtn">在 n8n 檢視</button>
+    </div>
+    <div class="ribbon-status" aria-live="polite">
+      <i id="statusDot" class="status-indicator"></i>
+      <strong id="statusText">待機</strong>
+    </div>
+  </section>
+
+  <main class="layout">
+    <section class="panel view is-active" id="view-agent">
+      <div class="agent-shell">
+        <div class="agent-main">
+          <div id="setupBanner" class="setup-banner">
+            <div>
+              <strong id="setupTitle">開始使用</strong>
+              <p id="setupText">先新增專案，再設定公司閘道 API Key，即可開始對話。</p>
+            </div>
+            <div class="row setup-actions">
+              <button type="button" class="primary" data-action="newProject">新增專案</button>
+              <button type="button" class="secondary" data-action="openProject">開啟專案</button>
+              <button type="button" class="secondary" data-action="openGateway">設定閘道</button>
+            </div>
+          </div>
+          <div id="chatLog" class="ai-chat-log" role="log" aria-label="對話記錄" aria-live="polite"></div>
+          <details id="planCard" hidden><summary>已保存的計畫</summary><pre id="planContent" style="white-space:pre-wrap"></pre><button type="button" class="primary" id="executePlan">切換一般並執行此計畫</button></details>
+          <div id="approvalCard" class="approval-card" hidden>
+            <strong>需要人工批准</strong>
+            <p id="approvalText"></p>
+            <div class="row">
+              <button type="button" class="primary" id="approveBtn">批准發佈</button>
+              <button type="button" class="secondary" id="denyBtn">拒絕</button>
+            </div>
+          </div>
+          <div class="prompt-starters" aria-label="開始一個任務">
+            <button type="button" data-prompt="請先檢視專案檔案，整理內容並提出下一步建議。">整理專案資料</button>
+            <button type="button" data-prompt="請先檢視本機自動化環境與依賴文件，再一次產生 n8n 與 OpenRPA 整合部署包，先驗證、再要求批准。不要自動執行桌面流程。">一次設置 n8n 與 OpenRPA</button>
+            <button type="button" data-prompt="請根據專案資料製作摘要報告，儲存為 Markdown 檔案。">產生摘要報告</button>
+            <button type="button" data-prompt="請協助設計 n8n 自動化流程，先確認需求，再建立並驗證流程 JSON。">建立自動化流程</button>
+          </div>
+          <form id="chatForm" class="chat-form">
+            <div class="chat-mode-row">
+              <label for="chatMode">對話模式</label>
+              <select id="chatMode" aria-describedby="chatModeHint">
+                <option value="general">一般 · 可修改與執行</option>
+                <option value="plan">計畫 · 分析並規劃</option>
+                <option value="ask">唯讀 · 只讀取與回答</option>
+              </select>
+              <span id="chatModeHint" class="muted">可修改目前專案；發佈需批准</span>
+            </div>
+            <label class="sr-only" for="chatInput">訊息</label>
+            <textarea id="chatInput" rows="3" placeholder="對目前專案下指令…（Enter 送出，Shift+Enter 換行）"></textarea>
+            <div class="row chat-actions">
+              <span class="muted" id="chatHint">檔案存於本機；對話與必要內容會送往模型閘道</span>
+              <button type="button" class="secondary" id="abortBtn" disabled>中止</button>
+              <button type="submit" class="primary" id="sendBtn">送出</button>
+            </div>
+          </form>
+        </div>
+        <aside class="agent-side" aria-label="狀態">
+          <h2>工作狀態</h2>
+          <button type="button" class="secondary" id="searchSettingsBtn">本機搜尋設定</button>
+          <button type="button" class="secondary" id="automationStatusBtn">自動化執行記錄</button>
+          <dl class="status-list">
+            <div><dt>專案</dt><dd id="sideProject">未開啟</dd></div>
+            <div><dt>模式</dt><dd id="sideMode">一般</dd></div>
+            <div><dt>閘道</dt><dd id="sideGateway">未設定</dd></div>
+            <div><dt>n8n</dt><dd id="sideN8n">未就緒</dd></div>
+            <div><dt>OpenRPA</dt><dd id="sideOpenRpa">未就緒</dd></div>
+            <div><dt>搜尋</dt><dd id="sideSearch">未設定</dd></div>
+            <div><dt>回合</dt><dd id="sideTurn">—</dd></div>
+          </dl>
+          <ol class="next-steps">
+            <li>新增或開啟專案，選擇一般／計畫／唯讀</li>
+            <li>在「公司閘道」貼上 API Key</li>
+            <li>需要時設定 SearXNG；n8n 與 OpenRPA 由 AI 一次產生部署包並經批准</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel view" id="view-n8n" hidden>
+      <div id="n8nPlaceholder" class="empty-state n8n-placeholder">
+        <h2>n8n 尚未就緒</h2>
+        <p id="n8nDegraded">本機 n8n runtime 尚未安裝或仍在啟動。Agent 其餘功能仍可使用。</p>
+        <div class="row">
+          <button type="button" class="secondary" data-action="n8nRestart">重試啟動</button>
+          <button type="button" class="ghost" data-mode-jump="agent">回 Agent</button>
+        </div>
+      </div>
+      <iframe id="n8nFrame" title="n8n" src="about:blank" hidden></iframe>
+    </section>
+
+    <section class="panel view" id="view-files" hidden>
+      <div id="filesEmpty" class="empty-state">
+        <h2>沒有可預覽的專案</h2>
+        <p id="filesEmptyText">開啟專案後，這裡會列出專案檔案。</p>
+        <div class="row">
+          <button type="button" class="primary" data-action="newProject">新增專案</button>
+          <button type="button" class="secondary" data-action="openProject">開啟專案</button>
+        </div>
+      </div>
+      <div id="filesPane" class="files-pane" hidden>
+        <div class="file-tree-wrap">
+          <div class="file-tree-head">
+            <strong>專案檔案 <small id="fileCount"></small></strong>
+            <button type="button" class="ghost compact" id="refreshFilesBtn">重新整理</button>
+          </div>
+          <div class="file-controls">
+            <input id="fileSearch" type="search" placeholder="搜尋檔名…" aria-label="搜尋檔名" />
+            <label class="import-label">匯入檔案<input id="importFiles" type="file" multiple aria-label="匯入檔案" /></label>
+            <small class="muted">每個檔案最多 20 MB；不覆蓋同名檔案</small>
+          </div>
+          <div id="fileTree" class="file-tree"></div>
+        </div>
+        <div class="preview-pane">
+          <div class="preview-head"><strong id="previewTitle">檔案預覽</strong><button type="button" id="downloadFileBtn" class="secondary" disabled>下載檔案</button></div>
+          <pre id="filePreview" class="file-preview">選左側檔案以預覽</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="dlgProject">
+    <div class="dialog-head">
+      <h3 id="dlgProjectTitle">專案</h3>
+      <button type="button" class="ghost dialog-close" data-close aria-label="關閉">×</button>
+    </div>
+    <p class="muted" id="projectListHint">點選既有專案開啟，或在下方新增。</p>
+    <div id="projectList" class="project-list"></div>
+    <p class="muted" id="projectListEmpty" hidden>尚無既有專案。</p>
+    <p class="form-error" id="projectError" hidden></p>
+    <label class="field">新專案主題（可空）<input id="projectTopic" placeholder="例如：月報自動化" /></label>
+    <div class="row dialog-actions">
+      <button type="button" class="primary" id="createProjectBtn">新增</button>
+      <button type="button" class="secondary" data-close>關閉</button>
+    </div>
+  </dialog>
+
+  <dialog id="dlgGateway">
+    <div class="dialog-head">
+      <h3>公司閘道</h3>
+      <button type="button" class="ghost dialog-close" data-close aria-label="關閉">×</button>
+    </div>
+    <p class="muted">填入公司提供的 OpenAI 相容閘道與模型名稱。金鑰保存在本機設定，Agent 無法讀取。</p>
+    <p class="gateway-meta"><span id="gatewayName">未載入</span> · <span id="gatewayKeyState">尚未設定金鑰</span></p>
+    <p class="muted" id="gatewayUrl"></p>
+    <label class="field">顯示名稱<input id="gatewayDisplayName" placeholder="公司 AI 閘道" /></label>
+    <label class="field">閘道網址<input id="gatewayEndpoint" type="url" placeholder="https://gateway.example.com/v1/chat/completions" /></label>
+    <label class="field">模型名稱<input id="gatewayModel" placeholder="公司提供的模型或部署名稱" /></label>
+    <label class="field">API Key<input id="apiKey" type="password" autocomplete="off" placeholder="留空保留原金鑰" /></label>
+    <p class="form-error" id="gatewayError" hidden></p>
+    <div class="row dialog-actions">
+      <button type="button" class="primary" id="saveGatewayBtn">儲存</button>
+      <button type="button" class="secondary" data-close>關閉</button>
+    </div>
+  </dialog>
+
+  <dialog id="dlgN8nKey">
+    <div class="dialog-head"><h3>n8n 發佈設定</h3><button type="button" class="ghost dialog-close" data-close aria-label="關閉">×</button></div>
+    <p class="muted">在 n8n 完成帳號設定後，從 Settings → n8n API 建立金鑰。儲存後，Agent 才能在你批准時發佈流程。</p>
+    <label class="field">n8n API Key<input id="n8nApiKey" type="password" autocomplete="off" /></label>
+    <p id="n8nKeyError" class="form-error" hidden></p>
+    <div class="row dialog-actions"><button type="button" class="primary" id="saveN8nKeyBtn">儲存金鑰</button><button type="button" class="secondary" data-close>取消</button></div>
+  </dialog>
+
+  <dialog id="dlgHelp">
+    <div class="dialog-head">
+      <h3>說明</h3>
+      <button type="button" class="ghost dialog-close" data-close aria-label="關閉">×</button>
+    </div>
+    <p>先執行 <code>build\install_runtime.bat</code>，再執行 <code>點此開始.bat</code>。公司電腦請用 cmd，不要用 PowerShell 安裝。</p>
+    <p>Agent 只能改目前專案。一般模式可修改與執行；計畫模式只規劃；唯讀模式只回答。publish 與 OpenRPA 整合部署需要批准，且不會自動啟用或執行桌面流程。</p>
+    <p>本機搜尋走 SearXNG MCP。依賴說明在匯入 <code>filesystem/system/knowledge/dependencies.sqlite</code> 後可供 AI 檢索。</p>
+    <div class="row dialog-actions">
+      <button type="button" class="secondary" data-close>關閉</button>
+    </div>
+  </dialog>
+
+  <dialog id="dlgAutomation">
+    <div class="dialog-head"><h3>本機自動化</h3><button type="button" class="ghost dialog-close" data-close aria-label="關閉">×</button></div>
+    <p id="automationHealth"></p><button type="button" class="secondary" id="automationRecover" hidden>已確認桌面：停止執行器並解除暫停</button>
+    <div id="automationRuns"></div>
+    <div class="row dialog-actions">
+      <button type="button" class="secondary" id="automationRefresh">重新整理</button>
+      <button type="button" class="secondary" id="automationClose">關閉</button>
+    </div>
+  </dialog>
+
+  <dialog id="dlgSearch">
+    <form id="searchSettingsForm">
+      <div class="dialog-head"><h3>本機 SearXNG MCP</h3><button type="button" class="ghost dialog-close" data-close aria-label="關閉">×</button></div>
+      <p class="muted">MCP 在本機運作；搜尋文字會送至下方 SearXNG 上游。只取搜尋摘要，不另抓取網頁。</p>
+      <label class="field">SearXNG 上游網址<input id="searchUrl" type="url" placeholder="https://search.example.org"></label>
+      <label class="field"><input id="searchEnabled" type="checkbox"> 啟用 AI 搜尋</label>
+      <p id="searchSettingsError" role="status"></p>
+      <div class="row dialog-actions">
+        <button type="button" class="secondary" id="searchClose">關閉</button>
+        <button type="button" class="secondary" id="searchTest">測試已儲存設定</button>
+        <button type="submit" class="primary" id="searchSave">儲存</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="app-statusbar">
+    <span class="statusbar-item"><span class="statusbar-label">版本</span><strong>0.0.1</strong></span>
+    <span class="statusbar-item"><span class="statusbar-label">位址</span><strong>127.0.0.1:8765</strong></span>
+    <span class="statusbar-hint">檔案存於本機；對話與必要內容會送往模型閘道</span>
+    <span class="statusbar-hint" id="footerProject">未開啟專案</span>
+  </footer>
+  <script defer src="/frontend/app.js?v=20260909-local-auto"></script>
+</body>
+</html>

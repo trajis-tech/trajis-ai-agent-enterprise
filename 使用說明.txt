@@ -1,0 +1,70 @@
+本機 AI Agent — 使用說明
+版本 0.0.1
+========================
+
+啟動與設定
+1. 解壓到使用者可寫資料夾。首次安裝以 CMD 執行 build\install_runtime.bat，選擇離線、線上或手動下載清單。
+   手動下載：開啟 docs\MANUAL_DOWNLOADS.html，依表中網址、放置路徑與 SHA-256 準備全部檔案。
+   純 CMD 離線入口：build\install_runtime.bat --offline（禁止連線；缺檔全部列出後停止）。
+   純 CMD 線上入口：build\install_runtime.bat --online。
+   n8n 與 OpenRPA 必須使用隨產品提供的 vendor ZIP，不能以官方 MSI 或 npm 原始套件代替。
+   安裝入口不需要系統 Python；先用 CMD 的 certutil/tar 啟動可攜 Python，再安裝其餘鎖定依賴。
+   安裝使用可攜式 runtime，不需要 PowerShell、系統 pip 或現場 npm 安裝。
+2. 執行 點此開始.bat，開啟 http://127.0.0.1:8765。
+3. 新增或開啟專案。每個瀏覽器分頁各自綁定專案，重新整理會恢復對話。
+4. 「公司閘道」填寫 OpenAI 相容網址、模型名稱與 API Key。
+   網址可為 /v1 或完整 /v1/chat/completions。金鑰留空會保留原值。
+   未設定金鑰時不會執行一般 AI 工作，也不會假裝完成任務。
+
+專案檔案與對話
+- 「專案」分頁可匯入、搜尋、文字預覽與下載檔案。
+- 匯入每檔上限 20 MB，不覆蓋同名檔案；二進位檔案請下載後開啟。
+- 「檔案 → 匯出專案 ZIP」包含允許讀取的實際檔案，上限 100 MB。
+- Enter 送出，Shift+Enter 換行；中文輸入法選字不會誤送。
+- 對話顯示執行中的工具。中止會停止後續工作並等待執行中工具結束。
+- 已完成的檔案變更不會因中止自動回滾。失敗或取消的 Python staging 不提交。
+- 「復原本回合」檢查快照及檔案雜湊；檔案後來被修改時會拒絕覆蓋。
+- delete_file 僅允許逐檔刪除，不接受整個資料夾。
+
+對話模式
+- 一般：可修改目前專案、執行 Python、部署；發佈與 OpenRPA 整合部署仍需批准。
+- 計畫：只讀取、分析、靜態驗證與保存計畫，不寫檔、不執行、不部署。
+- 唯讀：只讀取與回答。切換模式時，未處理的批准會失效。
+
+本機搜尋（SearXNG MCP）
+- 側欄「本機搜尋設定」填寫 SearXNG 上游（須開啟 JSON 格式）。MCP 在本機，查詢會送到該上游。
+- 除公司 AI 閘道與這個 SearXNG 上游外，執行期不依賴其他雲端服務。
+
+n8n 與 OpenRPA
+- 切到 n8n 分頁完成首次帳號設定，或登入原有帳號。
+- 從 n8n 的 Settings → n8n API 建立金鑰，於「n8n → 設定 n8n API Key」儲存。
+- Agent 可一次產生 OpenRPA 流程與預載 Local OpenRPA 節點的 n8n 流程。批准後才部署，且保持不自動啟用、不立刻執行桌面。
+- 可用 /publish 路徑.json 或 /deploy-automation 路徑.json。批准綁定檔案內容雜湊。
+- Local OpenRPA 節點連到本機 127.0.0.1:8771（產品自製 Broker，不是 OpenRPA 官方 REST）。
+- OpenRPA 1.4.57.13 以解壓方式放在 filesystem\system\openrpa，不執行 MSI、不連 OpenIAP 雲端。
+- OpenRPA 使用目前 Windows 使用者權限操作桌面，不是專案資料夾隔離或 OS 沙箱。
+- 若這台電腦已有 Documents\OpenRPA 或 AppData 設定，執行器會拒絕啟動以免覆寫既有 profile。
+- 首次 n8n 啟動可能需等待資料庫遷移；日誌：filesystem\.runtime\n8n_data\startup.log。
+
+依賴知識庫
+- 產品只提供唯讀檢索。請另用 docs\DEPENDENCY_KNOWLEDGE_DB_PROMPT.md 讓其他 AI 建庫。
+- 將 dependencies.sqlite 放到 filesystem\system\knowledge\。未匯入時 AI 會據實說明，不會編造文件。
+
+資料與權限
+- 檔案存於本機；對話及必要檔案內容會傳給你設定的模型閘道。
+- 金鑰存在本機設定／.runtime 的 secrets，Agent 檔案工具不能讀取。
+- FilesystemJail 限制工具 I/O：目前專案可寫，system 唯讀，其他專案與 .runtime 禁止。
+- Python 子行程使用 staging 與 Windows Job Object；這不是 OS 層級的檔案沙箱。
+  若企業要求惡意 Python 也絕不能存取宿主檔案，仍需額外 OS 隔離。
+
+驗證與打包
+- build\run_tests.bat：本機行為與回歸測試。
+- portable_python\python.exe build\smoke_test.py：三套 runtime 基本驗證。
+- build\pack_product.bat：打包產品原始檔，排除專案、.runtime、測試資料與閘道金鑰。
+- n8n bundle 仍為第二發行資產，依 build.lock.json 的精確版本及 SHA256 安裝。
+
+
+2026-09-09 更新：
+窄螢幕可直接開啟本機搜尋設定與自動化執行記錄。
+若 OpenRPA 顯示狀態不明，後續工作會暫停；檢查桌面後，在一般模式使用「已確認桌面：停止執行器並解除暫停」。此動作不會重跑歷史工作或回滾外部應用程式變更。
+搬移電腦時請攜帶 vendor 中各 runtime ZIP（包含 OpenRPA）及 wheel 快取；body ZIP 只含程式與安裝說明。詳細驗證與限制見 docs/VERIFICATION_2026-09-09.md。

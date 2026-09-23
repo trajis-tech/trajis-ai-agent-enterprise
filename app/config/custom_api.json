@@ -1,0 +1,108 @@
+{
+  "_readme": "雙模式由 enabled 互斥隔離：false=前台可編輯；true=鎖定本檔頂層模板（前台只更新 API Key）。Agent 需要 tool calling：閘道必須接受 tools / tool_calls，不可把 body.tools 寫死成 []。",
+  "enabled": false,
+  "displayName": "OpenAI chat/completions",
+  "requestUrl": "https://api.openai.com/v1/chat/completions",
+  "method": "POST",
+  "timeoutSeconds": 240,
+  "tls": {
+    "verify": true
+  },
+  "headers": {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "Authorization": "Bearer {{api_key}}"
+  },
+  "omitHeaderIfEmpty": ["Authorization"],
+  "body": {
+    "messages": "{{messages}}",
+    "model": "{{model}}",
+    "stream": true
+  },
+  "defaults": {
+    "model": "gpt-4o-mini"
+  },
+  "response": {
+    "contentPath": "choices.0.message.content",
+    "errorPath": "error.message"
+  },
+  "apiKeyEncrypted": "",
+  "_templates": {
+    "openai_chat_completions": {
+      "enabled": true,
+      "displayName": "OpenAI chat/completions",
+      "requestUrl": "https://api.openai.com/v1/chat/completions",
+      "method": "POST",
+      "timeoutSeconds": 240,
+      "tls": { "verify": true },
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "Bearer {{api_key}}"
+      },
+      "omitHeaderIfEmpty": ["Authorization"],
+      "body": {
+        "messages": "{{messages}}",
+        "model": "{{model}}",
+        "stream": true
+      },
+      "defaults": { "model": "gpt-4o-mini" },
+      "response": {
+        "contentPath": "choices.0.message.content",
+        "errorPath": "error.message"
+      },
+      "apiKeyEncrypted": ""
+    },
+    "azure_openai": {
+      "enabled": true,
+      "displayName": "Azure OpenAI",
+      "requestUrl": "https://YOUR_RESOURCE.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT/chat/completions?api-version=2024-10-21",
+      "method": "POST",
+      "timeoutSeconds": 240,
+      "tls": { "verify": true },
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "api-key": "{{api_key}}"
+      },
+      "omitHeaderIfEmpty": ["api-key"],
+      "body": {
+        "messages": "{{messages}}",
+        "model": "{{model}}",
+        "stream": true
+      },
+      "defaults": { "model": "gpt-4o-mini" },
+      "response": {
+        "contentPath": "choices.0.message.content",
+        "errorPath": "error.message"
+      },
+      "apiKeyEncrypted": ""
+    },
+    "enterprise_azure_chat_proxy": {
+      "_comment": "內網 Azure／OpenAI 相容閘道。必須放行 function calling；不要寫死 tools: []。",
+      "enabled": true,
+      "displayName": "企業 Chat 代理",
+      "requestUrl": "https://oai.example.com:12345/v1/chat/completions",
+      "method": "POST",
+      "timeoutSeconds": 240,
+      "tls": { "verify": false },
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "Bearer {{api_key}}"
+      },
+      "omitHeaderIfEmpty": ["Authorization"],
+      "body": {
+        "messages": "{{messages}}",
+        "model": "{{model}}",
+        "stream": true
+      },
+      "defaults": { "model": "gpt-5.4" },
+      "response": {
+        "contentPath": "choices.0.message.content",
+        "errorPath": "error.message"
+      },
+      "apiKeyEncrypted": ""
+    }
+  }
+}

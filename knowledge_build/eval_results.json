@@ -1,0 +1,443 @@
+{
+  "db": "D:\\本地 AI Agent\\knowledge_build\\dependencies.sqlite",
+  "chunks": 53,
+  "eval_count": 43,
+  "eval_failed": 0,
+  "p50_ms": 1.297,
+  "p95_ms": 2.24,
+  "samples_ms": [
+    1.235,
+    1.434,
+    1.982,
+    1.362,
+    1.277,
+    1.246,
+    1.405,
+    1.247,
+    1.297,
+    1.133,
+    1.558,
+    1.595,
+    1.52,
+    1.52,
+    2.24,
+    1.243,
+    1.288,
+    1.26,
+    1.202,
+    1.191,
+    1.267,
+    1.266,
+    2.004,
+    1.844,
+    2.644,
+    2.111,
+    1.545,
+    1.323,
+    1.256,
+    1.225,
+    1.967,
+    1.469,
+    1.231,
+    1.214,
+    1.535,
+    2.469,
+    1.236,
+    1.214,
+    1.192,
+    1.197,
+    1.169,
+    1.597,
+    1.434
+  ],
+  "machine_note": "measured on builder host during validate_kb.py; not a published SLA",
+  "cases": [
+    {
+      "id": "e01",
+      "query": "OpenRPA 內建 8771 API 嗎",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.235,
+      "first_snippet": "本產品自製 Automation Broker 位於 127.0.0.1:8771/v1。OpenRPA 官方文件沒有這個 REST API。問「OpenRPA 內建 8771 API 嗎」答案是否定的。n8n 節點連 8771 是專案私有橋接。"
+    },
+    {
+      "id": "e02",
+      "query": "Python staging 是否 OS 沙箱",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.434,
+      "first_snippet": "Python staging、FilesystemJail、Job Object、127.0.0.1 都不是 Windows OS 沙箱。OpenRPA 以目前 Windows 使用者權限操作桌面。問「Python staging 是否 OS 沙箱」答案是否定的。"
+    },
+    {
+      "id": "e03",
+      "query": "Plan 能 publish 嗎",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.982,
+      "first_snippet": "產品已實作：計畫（plan）與唯讀（ask）不能 publish。計畫可 save_plan，不能寫檔、run_python、部署。一般模式發佈仍需 HITL。問「Plan 能 publish 嗎」答案是不能。切換模式會使舊 approval 依新 epoch 失效，不刪歷史。"
+    },
+    {
+      "id": "e04",
+      "query": "wsurl offline settings.json",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.362,
+      "first_snippet": "官方離線做法：先關閉機器人，再編輯 Documents\\OpenRPA\\settings.json，清空 wsurl。設定變更在程式未執行時寫入。若之後再填回 URL，需手動重匯入 workflows 與 detectors。官方路徑是使用者 Documents\\OpenRPA，不是本產品 /workingdir。"
+    },
+    {
+      "id": "e05",
+      "query": "OpenRPA.exe /WorkflowID",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.277,
+      "first_snippet": "官方 CLI：OpenRPA.exe /WorkflowID <id 或 專案\\檔名>，可用 - 或 /。可帶 workflow 參數。此頁沒有證明行程退出等於 workflow 完成，也沒有完整取消語意。不要把 CLI 退出碼當成官方完成保證。"
+    },
+    {
+      "id": "e06",
+      "query": "Invoke-OpenRPA wait complete",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.246,
+      "first_snippet": "官方 PowerShell：Invoke-OpenRPA 預設會等待 workflow 完成並回傳 out 參數。這是 PowerShell 模組頁面的陳述，不能自動套用到 raw OpenRPA.exe 行程退出語意。"
+    },
+    {
+      "id": "e07",
+      "query": "N8N_CUSTOM_EXTENSIONS",
+      "ok": true,
+      "reasons": [],
+      "hits": 4,
+      "elapsed_ms": 1.405,
+      "first_snippet": "對 2.34.6 原始碼實測：環境變數名確為 N8N_CUSTOM_EXTENSIONS，以分號分隔多路徑，啟動時載入。這證實官網變數名在 pin 版本存在，不是只憑當前網站。"
+    },
+    {
+      "id": "e08",
+      "query": "format json 403 settings.yml",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.247,
+      "first_snippet": "官方 Search API：GET/POST `/` 與 `/search`。JSON/CSV/RSS 需在上游 settings.yml 啟用 format，否則 403。許多公開實例關閉 JSON。不可靠換 URL 掩蓋未啟用 JSON。"
+    },
+    {
+      "id": "e09",
+      "query": "tools/list tools/call isError",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.297,
+      "first_snippet": "MCP tools：tools/list 發現工具，tools/call 呼叫。執行失敗用 result.isError=true；未知工具用 JSON-RPC error。註解 annotations 不可視為受信任，除非來自受信任伺服器。"
+    },
+    {
+      "id": "e10",
+      "query": "DeferredToolRequests",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.133,
+      "first_snippet": "鎖定套件 2.31.0 原始碼確認：DeferredToolRequests / DeferredToolResults、agent.run(..., deferred_tool_results=...) 存在。這是 pin 版本證據，優先於未標版本的網站文件。"
+    },
+    {
+      "id": "e11",
+      "query": "unicode61 中文斷詞",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.558,
+      "first_snippet": "FTS5 預設 unicode61：連續字母數字成詞，不做中文斷詞。trigram 以連續三字元為 token，用於子字串，不是中文 NLP 斷詞。短於三字的中文需別名或 LIKE，不能宣稱 unicode61 會自動斷中文。"
+    },
+    {
+      "id": "e12",
+      "query": "PRAGMA query_only SQLITE_READONLY",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.595,
+      "first_snippet": "官方 PRAGMA query_only：啟用後 INSERT/UPDATE/DELETE/CREATE/DROP 會 SQLITE_READONLY。仍可 checkpoint/COMMIT，不是完整 OS 檔案唯讀。本產品另加 URI mode=ro。"
+    },
+    {
+      "id": "e13",
+      "query": "Origin header DNS rebinding",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.52,
+      "first_snippet": "MCP Streamable HTTP：必須驗證 Origin；本機應 bind 127.0.0.1；應做認證。localhost 不是 OS 沙箱。本產品架構把 :8772 HTTP MCP 列為選配；目前標準實作是 stdio，8772 屬 project_proposed 直到另有實作證據。"
+    },
+    {
+      "id": "e14",
+      "query": "MCP stderr stdio",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.52,
+      "first_snippet": "stdio：stdin/stdout 只承載換行分隔的 JSON-RPC；日誌可寫 stderr。stdout 不得混入非 MCP 訊息。取消：HTTP 斷線不應當成取消；應送 CancelledNotification。stdio 頁未另定義獨立 cancel RPC 名稱以外的機制。"
+    },
+    {
+      "id": "e15",
+      "query": "SIGTERM SIGKILL initialize",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 2.24,
+      "first_snippet": "MCP 2025-06-18：必須先 initialize，再 notifications/initialized，然後才一般操作。stdio 關閉：先關 stdin，必要時 SIGTERM，再 SIGKILL。本產品 SearXNG MCP 走 stdio，不是假設已有 HTTP MCP。"
+    },
+    {
+      "id": "e16",
+      "query": "workflowCreate name nodes connections settings",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.243,
+      "first_snippet": "當前 Public API 模型：建立 workflow 必填 name、nodes、connections、settings。active 在 workflowCreate 標為 readOnly，不能靠 POST body 當成可寫啟用欄位。此 schema 來自 docs.n8n.io 2026-09-08，與 n8n 2.34.6 tag 是否完全相同標為未驗證。"
+    },
+    {
+      "id": "e17",
+      "query": "active readOnly workflowCreate",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.288,
+      "first_snippet": "鎖定 n8n 2.34.6 內建 OpenAPI：建立 workflow 必填 name、nodes、connections、settings；active 為 readOnly。與當前官網模型一致。本產品 HTTP 用戶端只送這四個欄位。"
+    },
+    {
+      "id": "e18",
+      "query": "X-N8N-API-KEY",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.26,
+      "first_snippet": "官方認證標頭為 X-N8N-API-KEY。workflow:activate 範圍用於啟用/停用；當前文件也稱 publish/unpublish，路徑含 /workflows/{id}/activate 與 deactivate。免費試用期間 API 不可用的提示是雲端產品敘述，不可套用到本機實例而未核對。"
+    },
+    {
+      "id": "e19",
+      "query": "embeddable pip vendoring",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.202,
+      "first_snippet": "官方 embeddable：幾乎與使用者系統 Python 隔離，但不含 pip；套件應 vendoring。這不是 OS 檔案沙箱。公司機不現場 pip 符合官方「不要當一般安裝用 pip」的方向。產品 Python staging / Job Object 另屬專案限制，不能當成 Windows 沙箱。"
+    },
+    {
+      "id": "e20",
+      "query": "Python 3.11.9",
+      "ok": true,
+      "reasons": [],
+      "hits": 3,
+      "elapsed_ms": 1.191,
+      "first_snippet": "官方 3.11.9 發布於 2024-04-02，為 3.11 最後 bugfix；官網已標被 3.11.16 取代。產品仍鎖定 3.11.9，不要擅自升版。"
+    },
+    {
+      "id": "e21",
+      "query": "time_range day month year",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.267,
+      "first_snippet": "必填 q。language、pageno（預設 1）、time_range 僅 day/month/year、format 為 json|csv|rss。429 與 timeout 不在此頁定義為固定狀態碼；本產品對 429/timeout 的處理屬專案 MCP adapter，不是這份官方參數表。"
+    },
+    {
+      "id": "e22",
+      "query": "High Density OpenCore",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.266,
+      "first_snippet": "官方安裝是安裝器：目前使用者或全機。High Density 需要全機安裝且連 OpenCore。解壓 MSI 當可攜 runtime 不是這份官方安裝文件所保證的做法。瀏覽器 Native Messaging、Office 等是安裝選配。"
+    },
+    {
+      "id": "e23",
+      "query": "CUSTOM.localOpenRpa community",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 2.004,
+      "first_snippet": "CUSTOM.localOpenRpa / LocalOpenRpa.node.js 是本產品私有節點，不是官方 community node。它連本機 Broker 8771，不是 OpenRPA 官方 REST。"
+    },
+    {
+      "id": "e24",
+      "query": "MPL-2.0 OpenRPA LICENSE",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.844,
+      "first_snippet": "GitHub tag 1.4.57.13 的 LICENSE 為 Mozilla Public License 2.0（MPL-2.0）。不是 MS-PL。"
+    },
+    {
+      "id": "e25",
+      "query": "Sustainable Use License n8n",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 2.644,
+      "first_snippet": "n8n@2.34.6 的 LICENSE.md：非 EE 檔使用 Sustainable Use License 1.0。僅限內部業務或非商業/個人使用；散布須免費且非商業。含 .ee. 的檔案走企業授權。此處不構成法律意見。"
+    },
+    {
+      "id": "e26",
+      "query": "trigram substring",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 2.111,
+      "first_snippet": "FTS5 預設 unicode61：連續字母數字成詞，不做中文斷詞。trigram 以連續三字元為 token，用於子字串，不是中文 NLP 斷詞。短於三字的中文需別名或 LIKE，不能宣稱 unicode61 會自動斷中文。"
+    },
+    {
+      "id": "e27",
+      "query": "pydantic-ai-slim 2.31.0 deferred_tool_results",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.545,
+      "first_snippet": "鎖定套件 2.31.0 原始碼確認：DeferredToolRequests / DeferredToolResults、agent.run(..., deferred_tool_results=...) 存在。這是 pin 版本證據，優先於未標版本的網站文件。"
+    },
+    {
+      "id": "e28",
+      "query": "SQLite 3.45.1 FTS5",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.323,
+      "first_snippet": "本機產品 Python 3.11.9 測得 SQLite 3.45.1，FTS5、unicode61、trigram 皆可建立。這是本機 probe，不是 SQLite 官網版本表。"
+    },
+    {
+      "id": "e29",
+      "query": "沙箱",
+      "ok": true,
+      "reasons": [],
+      "hits": 3,
+      "elapsed_ms": 1.256,
+      "first_snippet": "Python staging、FilesystemJail、Job Object、127.0.0.1 都不是 Windows OS 沙箱。OpenRPA 以目前 Windows 使用者權限操作桌面。問「Python staging 是否 OS 沙箱」答案是否定的。"
+    },
+    {
+      "id": "e30",
+      "query": "n8n-nodes",
+      "ok": true,
+      "reasons": [],
+      "hits": 3,
+      "elapsed_ms": 1.225,
+      "first_snippet": "本產品啟動 n8n 時設定 N8N_CUSTOM_EXTENSIONS 指向 app/integrations/n8n，離線預載私有節點，公司機不解 npm。NODES_EXCLUDE 含 n8n-nodes-base.code。這是專案環境，不是官方預設路徑。"
+    },
+    {
+      "id": "e31",
+      "query": "publish_automation_bundle plan",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.967,
+      "first_snippet": "產品已實作：計畫（plan）與唯讀（ask）不能 publish。計畫可 save_plan，不能寫檔、run_python、部署。一般模式發佈仍需 HITL。問「Plan 能 publish 嗎」答案是不能。切換模式會使舊 approval 依新 epoch 失效，不刪歷史。"
+    },
+    {
+      "id": "e32",
+      "query": "localhost 不是 OS 沙箱",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.469,
+      "first_snippet": "Python staging、FilesystemJail、Job Object、127.0.0.1 都不是 Windows OS 沙箱。OpenRPA 以目前 Windows 使用者權限操作桌面。問「Python staging 是否 OS 沙箱」答案是否定的。"
+    },
+    {
+      "id": "e33",
+      "query": "SearXNG /search JSON",
+      "ok": true,
+      "reasons": [],
+      "hits": 3,
+      "elapsed_ms": 1.231,
+      "first_snippet": "產品搜尋是自製 stdio MCP adapter 呼叫官方 SearXNG /search JSON。沒有官方 SearXNG MCP 套件前提。:8772 為選配設計，未當標準實作（project_proposed）。"
+    },
+    {
+      "id": "e34",
+      "query": "8772 MCP HTTP proposed",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.214,
+      "first_snippet": "產品搜尋是自製 stdio MCP adapter 呼叫官方 SearXNG /search JSON。沒有官方 SearXNG MCP 套件前提。:8772 為選配設計，未當標準實作（project_proposed）。"
+    },
+    {
+      "id": "e35",
+      "query": "批准部署 啟用 n8n",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.535,
+      "first_snippet": "架構契約：批准部署 ≠ 啟用 n8n ≠ 已執行桌面。計畫不能部署。唯讀可搜尋（開關開啟時）但不是離線保證。"
+    },
+    {
+      "id": "e36",
+      "query": "n8n 2.34.6 POST publish",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 2.469,
+      "first_snippet": "對鎖定 runtime 的 openapi.yml 實測：n8n 2.34.6 **已有** POST /api/v1/workflows/{id}/publish 與 /unpublish；/activate 與 /deactivate 仍在但標 deprecated。409 用於 publication blocked 或 webhook path conflict。這是 pin 套件證據，不是網站即時文件。本產品發佈仍故意保持 inactive，不會呼叫 publish"
+    },
+    {
+      "id": "e37",
+      "query": "engines >=22.22 22.23.2",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.236,
+      "first_snippet": "n8n 2.34.6 package.json 要求 Node >=22.22。本機鎖定 node.exe --version 為 v22.23.2，滿足該 engines 欄。未啟動 n8n 行程做整合冒煙。"
+    },
+    {
+      "id": "e38",
+      "query": "N8N_CUSTOM_EXTENSIONS 2.34.6 semicolon",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.214,
+      "first_snippet": "對 2.34.6 原始碼實測：環境變數名確為 N8N_CUSTOM_EXTENSIONS，以分號分隔多路徑，啟動時載入。這證實官網變數名在 pin 版本存在，不是只憑當前網站。"
+    },
+    {
+      "id": "e39",
+      "query": "OpenRPA.exe.config 4.6.2",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.192,
+      "first_snippet": "解壓 1.4.57.13 的 OpenRPA.exe.config 寫明 .NETFramework 4.6.2。本機登錄 NDP v4 Full Release=533509，達到 4.6.2 門檻（394802）。這是設定與本機登錄實測，不是「已成功啟動機器人」的證據。公司其他電腦必須各自檢查。"
+    },
+    {
+      "id": "e40",
+      "query": "uvicorn run 127.0.0.1 8000",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.197,
+      "first_snippet": "鎖定 uvicorn 0.35.0：run() 預設 host=127.0.0.1、port=8000。授權 METADATA 為 BSD-3-Clause。官網本次 500，不以網站為據。"
+    },
+    {
+      "id": "e41",
+      "query": "httpx Timeout 5.0",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.169,
+      "first_snippet": "鎖定 httpx 0.28.1 預設 Timeout 為 5 秒。本產品 SearXNG MCP 明確 timeout=15、不跟隨 redirect、trust_env=False。429/403 由產品程式對 status_code 分支，不是 httpx 內建語意。"
+    },
+    {
+      "id": "e42",
+      "query": "Broker Origin 403",
+      "ok": true,
+      "reasons": [],
+      "hits": 1,
+      "elapsed_ms": 1.597,
+      "first_snippet": "單元測試實測通過：Broker 無 token 回 401；帶 Bearer 回 200；帶外部 Origin 回 403。計畫模式不能準備或批准 automation bundle。這是 TestClient 測產品 ASGI，不是對真實 OpenRPA 桌面。"
+    },
+    {
+      "id": "e43",
+      "query": "WorkingDir workingdir",
+      "ok": true,
+      "reasons": [],
+      "hits": 2,
+      "elapsed_ms": 1.434,
+      "first_snippet": "1.4.57.13 OpenRPA.exe 內含 ASCII 字串 WorkingDir；官方 CLI 頁沒有 /workingdir。產品啟動參數是 /workingdir。字串存在≠官方文件、也不等於本次已實跑隔離 profile。"
+    }
+  ]
+}

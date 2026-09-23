@@ -1,0 +1,119 @@
+{
+  "probed_at": "2026-09-08T13:05:54Z",
+  "method": "inspect locked files + import pinned packages + run selected unit tests; did not start OpenRPA GUI or n8n process",
+  "n8n": {
+    "package_version": "2.34.6",
+    "engines_node": ">=22.22",
+    "openapi_has_publish": true,
+    "openapi_has_activate": true,
+    "openapi_activate_deprecated": true,
+    "openapi_workflowCreate_required": true,
+    "openapi_create_active_readonly": true,
+    "openapi_publish_409": true,
+    "CUSTOM_EXTENSION_ENV": true,
+    "loader_splits_semicolon": true,
+    "activate_handler_deprecated_since": true,
+    "paths": {
+      "package.json": "filesystem\\system\\n8n\\node_modules\\n8n\\package.json",
+      "openapi.yml": "filesystem\\system\\n8n\\node_modules\\n8n\\dist\\public-api\\v1\\openapi.yml",
+      "load-nodes-and-credentials.js": "filesystem\\system\\n8n\\node_modules\\n8n\\dist\\load-nodes-and-credentials.js"
+    }
+  },
+  "node": {
+    "node_version_stdout": "v22.23.2",
+    "node_version_exit": 0,
+    "license_has_mit_permission_grant": true,
+    "license_path": "filesystem\\system\\node\\LICENSE"
+  },
+  "node_vs_n8n_engines": {
+    "ok": true,
+    "got": [
+      22,
+      23
+    ],
+    "need": [
+      22,
+      22
+    ]
+  },
+  "openrpa": {
+    "exe_exists": true,
+    "supportedRuntime_sku": ".NETFramework,Version=v4.6.2",
+    "exe_contains_WorkingDir_ascii": true,
+    "exe_contains_workingdir_ascii_lowercase": false,
+    "config_path": "filesystem\\system\\openrpa\\OpenRPA.exe.config",
+    "dotnet_ndp_v4_full": {
+      "ok": true,
+      "release": 533509,
+      "meets_394802": true
+    }
+  },
+  "python_packages": {
+    "ok": true,
+    "starlette": "0.47.2",
+    "uvicorn": "0.35.0",
+    "httpx": "0.28.1",
+    "httpx_default_timeout": 5.0,
+    "httpx_timeout_repr": "Timeout(timeout=5.0)",
+    "uvicorn_run_host_port_defaults": {
+      "host": "'127.0.0.1'",
+      "port": "8000"
+    },
+    "starlette_init_params": [
+      "self",
+      "debug",
+      "routes",
+      "middleware",
+      "exception_handlers",
+      "on_startup",
+      "on_shutdown",
+      "lifespan"
+    ]
+  },
+  "sqlite": {
+    "exit": 0,
+    "stdout": "python 3.11.9\nsqlite 3.45.1\nfts5 1\nunicode61 ok\ntrigram ok"
+  },
+  "unittests": {
+    "mode": "per_file",
+    "elapsed_s": 6.3,
+    "all_ok": true,
+    "results": {
+      "tests/test_automation.py": {
+        "exit": 0,
+        "ok": true,
+        "tail": "test_bundle_approval_hash_covers_both_files (test_automation.BundleTests.test_bundle_approval_hash_covers_both_files) ... ok\r\ntest_plan_cannot_prepare_or_approve_bundle (test_automation.BundleTests.test_plan_cannot_prepare_or_approve_bundle) ... ok\r\ntest_switching_mode_revokes_pending_without_deleting_history (test_automation.BundleTests.test_switching_mode_revokes_pending_without_deleting_history) ... ok\r\ntest_broker_requires_auth_and_rejects_browser_origin (test_automation.RuntimeTests.test_broker_requires_auth_and_rejects_browser_origin) ... ok\r\ntest_disabled_deployment_and_cross_project_rejected (test_automation.RuntimeTests.test_disabled_deployment_and_cross_project_rejected) ... ok\r\ntest_idempotency_does_not_repeat_work (test_automation.RuntimeTests.test_idempotency_does_not_repeat_work) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.554s\r\n\r\nOK\r\n"
+      },
+      "tests/test_search_mcp.py": {
+        "exit": 0,
+        "ok": true,
+        "tail": "test_arbitrary_upstream_and_invalid_args_rejected (test_search_mcp.SearchMcpTests.test_arbitrary_upstream_and_invalid_args_rejected) ... ok\r\ntest_initialization_and_tool_catalog (test_search_mcp.SearchMcpTests.test_initialization_and_tool_catalog) ... ok\r\ntest_stdio_to_real_http_upstream (test_search_mcp.SearchMcpTests.test_stdio_to_real_http_upstream) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.946s\r\n\r\nOK\r\n"
+      },
+      "tests/test_chat_modes.py": {
+        "exit": 0,
+        "ok": true,
+        "tail": "test_ask_can_inspect_environment_and_missing_knowledge (test_chat_modes.ChatModeTests.test_ask_can_inspect_environment_and_missing_knowledge) ... ok\r\ntest_mode_cannot_change_while_project_running (test_chat_modes.ChatModeTests.test_mode_cannot_change_while_project_running) ... ok\r\ntest_model_only_receives_mode_tools (test_chat_modes.ChatModeTests.test_model_only_receives_mode_tools) ... ok\r\ntest_modes_survive_reopen_and_deny_mutation (test_chat_modes.ChatModeTests.test_modes_survive_reopen_and_deny_mutation) ... ok\r\ntest_plan_is_server_record_and_ask_cannot_save (test_chat_modes.ChatModeTests.test_plan_is_server_record_and_ask_cannot_save) ... ok\r\ntest_stale_turn_cannot_mutate_after_switching_back (test_chat_modes.ChatModeTests.test_stale_turn_cannot_mutate_after_switching_back) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.572s\r\n\r\nOK\r\n"
+      },
+      "tests/test_knowledge.py": {
+        "exit": 0,
+        "ok": true,
+        "tail": "test_product_db_answers_critical_questions (test_knowledge.ImportedKnowledgeTests.test_product_db_answers_critical_questions) ... ok\r\ntest_fts_metacharacters_do_not_crash (test_knowledge.KnowledgeReaderTests.test_fts_metacharacters_do_not_crash) ... ok\r\ntest_missing_db_is_explicit (test_knowledge.KnowledgeReaderTests.test_missing_db_is_explicit) ... ok\r\ntest_readonly_rejects_writes (test_knowledge.KnowledgeReaderTests.test_readonly_rejects_writes) ... ok\r\ntest_search_and_recipe_are_offline (test_knowledge.KnowledgeReaderTests.test_search_and_recipe_are_offline) ... ok\r\ntest_version_mismatch_is_labeled_reference_only (test_knowledge.KnowledgeReaderTests.test_version_mismatch_is_labeled_reference_only) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.513s\r\n\r\nOK\r\n"
+      },
+      "tests/test_agent_tools.py": {
+        "exit": 0,
+        "ok": true,
+        "tail": "test_edit_conflict (test_agent_tools.AdversarialTests.test_edit_conflict) ... ok\r\ntest_expected_sha256_roundtrip (test_agent_tools.AdversarialTests.test_expected_sha256_roundtrip) ... ok\r\ntest_five_tools_sequential_writes (test_agent_tools.AdversarialTests.test_five_tools_sequential_writes) ... ok\r\ntest_illegal_path (test_agent_tools.AdversarialTests.test_illegal_path) ... ok\r\ntest_publish_create_then_conflict (test_agent_tools.AdversarialTests.test_publish_create_then_conflict) ... ok\r\ntest_publish_without_approval (test_agent_tools.AdversarialTests.test_publish_without_approval) ... ok\r\ntest_unknown_tool (test_agent_tools.AdversarialTests.test_unknown_tool) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.580s\r\n\r\nOK\r\n"
+      }
+    }
+  },
+  "product_code": {
+    "openrpa_launch_argv": [
+      "OpenRPA.exe",
+      "/workingdir",
+      "<profile>"
+    ],
+    "search_mcp_httpx_timeout": 15,
+    "search_mcp_maps_403_429": true,
+    "broker_test_origin_403": "tests/test_automation.py::test_broker_requires_auth_and_rejects_browser_origin"
+  }
+}

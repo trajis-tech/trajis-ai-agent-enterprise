@@ -1,0 +1,80 @@
+agent_limits:
+  request_limit: 20
+  tool_calls_limit: 50
+  total_tokens_limit: 200000
+  per_request_input_tokens_limit: 100000
+
+write_extensions:
+  - .py
+  - .txt
+  - .md
+  - .json
+  - .yaml
+  - .yml
+  - .csv
+  - .tsv
+  - .xlsx
+  - .xls
+  - .docx
+  - .pptx
+  - .pdf
+  - .png
+  - .jpg
+  - .jpeg
+  - .gif
+  - .svg
+  - .html
+  - .css
+  - .js
+  - .toml
+  - .ini
+  - .cfg
+  - .log
+  - .xml
+
+forbidden_names:
+  - .env
+  - custom_api.json
+
+forbidden_suffixes:
+  - .pem
+  - .key
+  - .p12
+  - .pfx
+
+run_python:
+  timeout_seconds: 60
+  memory_bytes: 1073741824
+  cpu_seconds: 30
+  active_process_limit: 8
+  stdout_limit_bytes: 65536
+
+n8n:
+  host: 127.0.0.1
+  port: 5678
+  code_node_enabled: false
+  allowed_node_types:
+    - CUSTOM.localOpenRpa
+    - n8n-nodes-base.webhook
+    - n8n-nodes-base.set
+    - n8n-nodes-base.if
+    - n8n-nodes-base.switch
+    - n8n-nodes-base.merge
+    - n8n-nodes-base.httpRequest
+    - n8n-nodes-base.scheduleTrigger
+    - n8n-nodes-base.manualTrigger
+    - n8n-nodes-base.noOp
+    - n8n-nodes-base.function
+    - n8n-nodes-base.itemLists
+    - n8n-nodes-base.spreadsheetFile
+    - n8n-nodes-base.readBinaryFile
+    - n8n-nodes-base.writeBinaryFile
+    - n8n-nodes-base.dateTime
+    - n8n-nodes-base.filter
+    - n8n-nodes-base.splitInBatches
+    - n8n-nodes-base.wait
+    - n8n-nodes-base.respondToWebhook
+
+history:
+  keep_recent_turns: 12
+  max_tool_output_chars: 4000

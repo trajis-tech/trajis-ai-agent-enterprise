@@ -1,0 +1,18 @@
+name: release-gate
+on:
+  push:
+  pull_request:
+jobs:
+  unittest:
+    runs-on: windows-latest
+    env:
+      ALLOW_MODEL_REQUESTS: "False"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install locked libraries used by tests
+        run: python build/ci_install_test_deps.py
+      - name: Run unittest
+        run: python -m unittest discover -s tests -v

@@ -1,0 +1,547 @@
+{
+  "detailed_component_count": 18,
+  "inventory_component_count": 77,
+  "chunk_count": 53,
+  "recipe_count": 10,
+  "components": [
+    {
+      "id": "python-product",
+      "version": "3.11.9",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "python-agent",
+      "version": "3.14.7",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "node",
+      "version": "22.23.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "n8n",
+      "version": "2.34.6",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pydantic-ai-slim",
+      "version": "2.31.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pydantic",
+      "version": "2.12.5",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "starlette",
+      "version": "0.47.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "uvicorn",
+      "version": "0.35.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "httpx",
+      "version": "0.28.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "sqlite",
+      "version": "3.45.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "openrpa",
+      "version": "1.4.57.13",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "project_implemented"
+    },
+    {
+      "id": "openrpa-broker",
+      "version": "unknown",
+      "version_status": "unknown",
+      "has_detailed_chunks": true,
+      "implementation_status": "project_implemented"
+    },
+    {
+      "id": "n8n-local-openrpa-node",
+      "version": "unknown",
+      "version_status": "unknown",
+      "has_detailed_chunks": true,
+      "implementation_status": "project_implemented"
+    },
+    {
+      "id": "mcp-spec",
+      "version": "2025-06-18",
+      "version_status": "pinned",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "searxng-search-api",
+      "version": "unknown",
+      "version_status": "unknown",
+      "has_detailed_chunks": true,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "searxng-mcp-adapter",
+      "version": "unknown",
+      "version_status": "unknown",
+      "has_detailed_chunks": true,
+      "implementation_status": "project_implemented"
+    },
+    {
+      "id": "product-modes",
+      "version": "unknown",
+      "version_status": "unknown",
+      "has_detailed_chunks": true,
+      "implementation_status": "project_implemented"
+    },
+    {
+      "id": "product-isolation",
+      "version": "unknown",
+      "version_status": "unknown",
+      "has_detailed_chunks": true,
+      "implementation_status": "project_implemented"
+    },
+    {
+      "id": "pydantic-graph",
+      "version": "2.31.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pydantic-core",
+      "version": "2.41.5",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "h11",
+      "version": "0.16.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "anyio",
+      "version": "4.10.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "httpcore",
+      "version": "1.0.9",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "idna",
+      "version": "3.10",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "certifi",
+      "version": "2025.8.3",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "click",
+      "version": "8.2.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "typing-extensions",
+      "version": "4.14.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "annotated-types",
+      "version": "0.7.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "websockets",
+      "version": "15.0.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pyyaml",
+      "version": "6.0.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "sniffio",
+      "version": "1.3.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "colorama",
+      "version": "0.4.6",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "openai",
+      "version": "2.45.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "tiktoken",
+      "version": "0.12.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "opentelemetry-api",
+      "version": "1.39.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "numpy",
+      "version": "2.5.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pandas",
+      "version": "2.3.3",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "scipy",
+      "version": "1.16.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "statsmodels",
+      "version": "0.14.5",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "scikit-learn",
+      "version": "1.9.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "sympy",
+      "version": "1.14.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "numexpr",
+      "version": "2.14.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pyarrow",
+      "version": "25.0.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "matplotlib",
+      "version": "3.10.5",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "seaborn",
+      "version": "0.13.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pillow",
+      "version": "11.3.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "openpyxl",
+      "version": "3.1.5",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "xlsxwriter",
+      "version": "3.2.5",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "xlrd",
+      "version": "2.0.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "python-docx",
+      "version": "1.2.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "python-pptx",
+      "version": "1.0.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "reportlab",
+      "version": "4.4.3",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "lxml",
+      "version": "6.1.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "jinja2",
+      "version": "3.1.6",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "python-dateutil",
+      "version": "2.9.0.post0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "tabulate",
+      "version": "0.9.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "chardet",
+      "version": "5.2.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "beautifulsoup4",
+      "version": "4.13.4",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "requests",
+      "version": "2.32.4",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "urllib3",
+      "version": "2.5.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "charset-normalizer",
+      "version": "3.4.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "soupsieve",
+      "version": "2.7",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "markupsafe",
+      "version": "3.0.3",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "six",
+      "version": "1.17.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pytz",
+      "version": "2025.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "tzdata",
+      "version": "2025.2",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "cycler",
+      "version": "0.12.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "kiwisolver",
+      "version": "1.5.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "pyparsing",
+      "version": "3.2.3",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "contourpy",
+      "version": "1.3.3",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "fonttools",
+      "version": "4.59.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "packaging",
+      "version": "25.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "threadpoolctl",
+      "version": "3.6.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "joblib",
+      "version": "1.5.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "mpmath",
+      "version": "1.3.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "et-xmlfile",
+      "version": "2.0.0",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    },
+    {
+      "id": "patsy",
+      "version": "1.0.1",
+      "version_status": "pinned",
+      "has_detailed_chunks": false,
+      "implementation_status": "official_implemented"
+    }
+  ]
+}
