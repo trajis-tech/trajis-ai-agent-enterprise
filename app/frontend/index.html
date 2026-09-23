@@ -42,6 +42,7 @@
         <button type="button" class="toolbar-btn" data-menu="help" aria-haspopup="menu" aria-expanded="false">說明</button>
         <div class="toolbar-menu" id="menu-help" role="menu" hidden>
           <button type="button" class="toolbar-menu-item" role="menuitem" data-action="openHelp">使用說明</button>
+          <button type="button" class="toolbar-menu-item" role="menuitem" data-action="openAbout">關於</button>
         </div>
       </div>
     </nav>
@@ -51,7 +52,7 @@
         <button type="button" class="mode-segment-btn" data-mode="n8n">n8n</button>
         <button type="button" class="mode-segment-btn" data-mode="files">專案</button>
       </div>
-      <div class="badge">v1.0</div>
+      <div class="badge">0.0.1</div>
     </div>
   </header>
 
@@ -231,12 +232,26 @@
     <div class="row dialog-actions"><button type="button" class="primary" id="saveN8nKeyBtn">儲存金鑰</button><button type="button" class="secondary" data-close>取消</button></div>
   </dialog>
 
+  <dialog id="dlgAbout">
+    <div class="dialog-head">
+      <h3>關於</h3>
+      <button type="button" class="ghost dialog-close" data-close aria-label="關閉">×</button>
+    </div>
+    <p><strong>本機 AI Agent</strong> 0.0.1</p>
+    <p class="muted">企業 Windows 本機工具。專案檔留在這台電腦；發佈 n8n 與 OpenRPA 整合包需要你批准，而且不會自動啟用或立刻執行桌面。</p>
+    <p>安裝只下載一個壓縮檔，解壓後雙擊 <code>一鍵安裝.bat</code>。介面在 <code>127.0.0.1:8765</code>。<code>127.0.0.1:8771</code> 是本產品自製 Broker，不是 OpenRPA 官方 REST。</p>
+    <p class="muted">OpenRPA 1.4.57.13 為 MPL-2.0。n8n 壓縮檔含上游 <code>.ee.</code> 檔，再散布受其授權限制。</p>
+    <div class="row dialog-actions">
+      <button type="button" class="secondary" data-close>關閉</button>
+    </div>
+  </dialog>
+
   <dialog id="dlgHelp">
     <div class="dialog-head">
       <h3>說明</h3>
       <button type="button" class="ghost dialog-close" data-close aria-label="關閉">×</button>
     </div>
-    <p>先執行 <code>build\install_runtime.bat</code>，再執行 <code>點此開始.bat</code>。公司電腦請用 cmd，不要用 PowerShell 安裝。</p>
+    <p>解壓發行包後雙擊 <code>一鍵安裝.bat</code>。公司電腦請用 cmd，不要用 PowerShell、pip 或 npm 安裝。</p>
     <p>Agent 只能改目前專案。一般模式可修改與執行；計畫模式只規劃；唯讀模式只回答。publish 與 OpenRPA 整合部署需要批准，且不會自動啟用或執行桌面流程。</p>
     <p>本機搜尋走 SearXNG MCP。依賴說明在匯入 <code>filesystem/system/knowledge/dependencies.sqlite</code> 後可供 AI 檢索。</p>
     <div class="row dialog-actions">

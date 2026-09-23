@@ -247,6 +247,8 @@ async function handleAction(action) {
       await refreshStatus();
     } else if (action === "openHelp") {
       $("dlgHelp").showModal();
+    } else if (action === "openAbout") {
+      $("dlgAbout").showModal();
     }
   } catch (err) {
     setStatus(err.message || "操作失敗", "err");

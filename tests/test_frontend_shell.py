@@ -24,6 +24,9 @@ class FrontendShellTests(unittest.TestCase):
         self.assertIn('id="chatMode"', html)
         self.assertIn('id="dlgSearch"', html)
         self.assertIn('id="dlgAutomation"', html)
+        self.assertIn('data-action="openAbout"', html)
+        self.assertIn('id="dlgAbout"', html)
+        self.assertIn(">0.0.1</div>", html)
         self.assertIn("一次設置 n8n 與 OpenRPA", html)
 
     def test_chat_has_timeout_and_safe_boot(self) -> None:
