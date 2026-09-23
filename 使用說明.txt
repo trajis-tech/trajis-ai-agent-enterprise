@@ -3,7 +3,8 @@
 ========================
 
 啟動與設定
-1. 解壓到使用者可寫資料夾。首次安裝以 CMD 執行 build\install_runtime.bat，選擇離線、線上或手動下載清單。
+1. 發行版只提供一個壓縮檔。解壓後雙擊「一鍵安裝.bat」，不要分開下載 runtime。
+   開發機仍可用 build\install_runtime.bat 選擇離線、線上或手動下載清單。
    手動下載：開啟 docs\MANUAL_DOWNLOADS.html，依表中網址、放置路徑與 SHA-256 準備全部檔案。
    純 CMD 離線入口：build\install_runtime.bat --offline（禁止連線；缺檔全部列出後停止）。
    純 CMD 線上入口：build\install_runtime.bat --online。

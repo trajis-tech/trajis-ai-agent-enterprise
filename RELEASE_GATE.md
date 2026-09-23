@@ -46,9 +46,9 @@
 
 ## Packaging
 
-- [ ] GitHub Release **本體 zip** 不含 `portable_python/`、`vendor/`、`system/python|node|n8n`、`.runtime`
-- [ ] 同一 Release **第二資產** `n8n-runtime-<ver>-win-x64.zip` 有整包 sha256，且 < 2 GiB
-- [ ] 公開 Release 不得附上仍含 n8n `.ee.` 檔的 runtime zip。Sustainable Use License 不涵蓋這些 Enterprise 檔；內部安裝仍用建置機 `vendor/` 的鎖定 ZIP
+- [ ] GitHub Release 只上傳一個 `trajis-ai-agent-enterprise-<ver>.zip`。使用者解壓後雙擊 `一鍵安裝.bat`，不再另附本體 zip 或 runtime zip
+- [ ] 該壓縮檔不含已解壓的 `portable_python/`、`system/python|node|n8n`、`.runtime` 與閘道金鑰；鎖定的 n8n／OpenRPA zip 放在包內 `vendor/`
+- [ ] n8n zip 有整包 sha256 且 < 2 GiB。公開再散布含 `.ee.` 檔的包受 n8n 授權限制
 - [ ] `build.lock.json` 每筆 runtime 有 version + url + sha256；`wheels[]` 以 `build\pin_wheels.py` 凍結後再發行
 - [ ] wheel 走 `wheel_installer.py`（dist-info / `.data` / RECORD），不是只 `zipfile -e`
 

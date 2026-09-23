@@ -12,6 +12,14 @@ class InstallScriptTests(unittest.TestCase):
         for banned in ("powershell", "pwsh", "invoke-webrequest", "npm", "npx", "get-pip", "pip "):
             self.assertNotIn(banned, text)
 
+    def test_one_click_installer_runs_online_then_starts(self) -> None:
+        text = (ROOT / "一鍵安裝.bat").read_text(encoding="utf-8").lower()
+        self.assertIn("install_runtime.bat", text)
+        self.assertIn("--online", text)
+        self.assertIn("點此開始.bat".lower(), text)
+        for banned in ("powershell", "pwsh", "invoke-webrequest", "npm", "npx", "get-pip", "pip "):
+            self.assertNotIn(banned, text)
+
     def test_start_bat_does_not_download(self) -> None:
         text = (ROOT / "點此開始.bat").read_text(encoding="utf-8").lower()
         self.assertIn("install_runtime.bat", text)

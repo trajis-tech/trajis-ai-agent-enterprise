@@ -13,11 +13,9 @@
 
 ## 取得與安裝
 
-1. 下載 [0.0.1 Release](https://github.com/trajis-tech/trajis-ai-agent-enterprise/releases/tag/v0.0.1) 的 `portable-agent-body.zip`，解壓到使用者可寫資料夾。
-2. 依 `docs/MANUAL_DOWNLOADS.html` 與 `build.lock.json` 準備 Python、Node 與 wheel。這些有公開網址，可用 `build\install_runtime.bat --online` 取得。
-3. OpenRPA 1.4.57.13 的預先封裝 ZIP 隨 Release 提供，放到 `vendor/openrpa-runtime-1.4.57.13-win-x64.zip`。授權為 MPL-2.0，目標電腦需有 .NET Framework 4.6.2 或更新版本。
-4. n8n 2.34.6 的預先封裝 ZIP **沒有**放在這個公開 Release。建置機產出的壓縮檔含 n8n `.ee.` Enterprise 檔，Sustainable Use License 不允許公開再散布。內部安裝請使用已核對 SHA-256 的 `vendor/n8n-runtime-2.34.6-win-x64.zip`。
-5. 執行 `build\install_runtime.bat`，完成後用 `點此開始.bat` 開啟 `http://127.0.0.1:8765`。
+只下載 [0.0.1 Release](https://github.com/trajis-tech/trajis-ai-agent-enterprise/releases/tag/v0.0.1) 的 `trajis-ai-agent-enterprise-0.0.1.zip`。解壓到使用者可寫資料夾，雙擊 `一鍵安裝.bat`。
+
+這個檔已包含產品程式、OpenRPA 與 n8n 的鎖定壓縮檔。腳本會用 Windows `curl` 取得 Python、Node 與 wheel，核對 SHA-256 後安裝，接著開啟 `http://127.0.0.1:8765`。不需要另下載其他 Release 附件，也不要執行 PowerShell、pip 或 npm。目標電腦需有 .NET Framework 4.6.2 或更新版本。n8n 壓縮檔含上游 `.ee.` 檔，公開再散布受其授權限制。
 
 操作細節見 `使用說明.txt`。
 

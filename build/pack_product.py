@@ -35,7 +35,7 @@ def pack(root: Path, output: Path) -> None:
             for file in sorted(knowledge.rglob('*')):
                 if file.is_file() and file.suffix in {'.sql', '.md'} and file.name != 'dependencies.sqlite':
                     archive.write(file, file.relative_to(root).as_posix())
-        for name in ('點此開始.bat', 'build.lock.json', 'RELEASE_GATE.md', '使用說明.txt', 'IMPROVEMENT_PLAN.md', 'README.md', 'VERSION'):
+        for name in ('一鍵安裝.bat', '點此開始.bat', 'build.lock.json', 'RELEASE_GATE.md', '使用說明.txt', 'IMPROVEMENT_PLAN.md', 'README.md', 'VERSION'):
             if (root / name).is_file():
                 archive.write(root / name, name)
         manifest = root / 'filesystem/system/manifests.json'
