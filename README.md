@@ -1,41 +1,43 @@
 # trajis-ai-agent-enterprise
 
-企業本機 AI Agent **0.0.1**。在 Windows 上以可攜 Python 執行，專案檔留在本機；發佈 n8n 與 OpenRPA 整合包需要人工批准。
+[繁體中文說明](README.zh-TW.md)
 
-## 這個版本包含什麼
+Enterprise local AI Agent **0.0.1**. It runs on Windows with a portable Python, keeps project files on the local machine, and requires human approval before publishing n8n and OpenRPA integration packages.
 
-- 一般、計畫、唯讀三種對話模式，由伺服器強制。
-- 專案檔案、回合復原、Python staging 與 Windows Job Object。Job Object 不是作業系統檔案沙箱。
-- 本機 n8n、自製 OpenRPA Broker（`127.0.0.1:8771`，不是 OpenRPA 官方 REST）與 SearXNG MCP。
-- 依賴知識庫唯讀檢索。資料庫在 `filesystem/system/knowledge/dependencies.sqlite`。
+## What is in this release
 
-公司模型閘道、真實桌面流程與使用者的 SearXNG 服務需要在部署環境另行設定。本儲存庫不包含 API 金鑰。
+- Three conversation modes, enforced by the server: normal, plan and read-only.
+- Project files, per-turn rollback, Python staging and a Windows Job Object. The Job Object is not an operating-system file sandbox.
+- A local n8n, a custom OpenRPA Broker (`127.0.0.1:8771`; this is not the official OpenRPA REST API) and a SearXNG MCP.
+- Read-only retrieval from a dependency knowledge base. The database is at `filesystem/system/knowledge/dependencies.sqlite`.
 
-## 取得與安裝
+The company model gateway, real desktop workflows and the user's SearXNG service must be configured separately in the deployment environment. This repository contains no API keys.
 
-只下載 [0.0.1 Release](https://github.com/trajis-tech/trajis-ai-agent-enterprise/releases/tag/v0.0.1) 的 `trajis-ai-agent-enterprise-0.0.1.zip`。解壓到使用者可寫資料夾，雙擊 `一鍵安裝.bat`。
+## Download and install
 
-這個檔已包含產品程式、OpenRPA 與 n8n 的鎖定壓縮檔。腳本會用 Windows `curl` 取得 Python、Node 與 wheel，核對 SHA-256 後安裝，接著開啟 `http://127.0.0.1:8765`。不需要另下載其他 Release 附件，也不要執行 PowerShell、pip 或 npm。目標電腦需有 .NET Framework 4.6.2 或更新版本。n8n 壓縮檔含上游 `.ee.` 檔，公開再散布受其授權限制。
+Download only `trajis-ai-agent-enterprise-0.0.1.zip` from the [0.0.1 release](https://github.com/trajis-tech/trajis-ai-agent-enterprise/releases/tag/v0.0.1). Extract it to a folder the user can write to, then double-click `一鍵安裝.bat` (the file name means "One-Click Install").
 
-操作細節見 `使用說明.txt`。
+That archive already contains the product code and the pinned OpenRPA and n8n archives. The script fetches Python, Node and wheels with Windows `curl`, verifies their SHA-256 hashes, installs them, and then opens `http://127.0.0.1:8765`. You do not need to download any other release asset, and you should not run PowerShell, pip or npm yourself. The target machine needs .NET Framework 4.6.2 or later. The n8n archive contains upstream `.ee.` files, and their license restricts public redistribution.
 
-## 開發與測試
+For operating details, see `使用說明.txt` (the file name means "User Guide"; its contents are in Traditional Chinese).
 
-Git 樹不含 `portable_python/`、`vendor/`、`filesystem/system/python|node|n8n|openrpa/` 與 `filesystem/.runtime/`。
+## Development and testing
+
+The Git tree does not contain `portable_python/`, `vendor/`, `filesystem/system/python|node|n8n|openrpa/` or `filesystem/.runtime/`.
 
 ```bat
 set ALLOW_MODEL_REQUESTS=False
 portable_python\python.exe -m unittest discover -s tests -v
 ```
 
-GitHub Actions 使用 Python 3.11，並只安裝測試會匯入的鎖定套件（`build/ci_install_test_deps.py`）。公司電腦仍走 `build\install_runtime.bat`，不在現場執行 pip 或 npm。
+GitHub Actions uses Python 3.11 and installs only the pinned packages that the tests import (`build/ci_install_test_deps.py`). Company machines still go through `build\install_runtime.bat`; pip and npm are not run on site.
 
-打包本體：
+To build the package:
 
 ```bat
 build\pack_product.bat
 ```
 
-## 授權
+## License
 
-本儲存庫的產品程式依儲存庫現況提供，未另附獨立產品授權條款。第三方 runtime 維持各自授權：n8n 為 Sustainable Use License（不含 `.ee.` Enterprise 檔）、OpenRPA tag 1.4.57.13 為 MPL-2.0、CPython 為 PSF-2.0。
+The product code in this repository is provided as-is and does not come with a separate product license. Third-party runtimes keep their own licenses: n8n is under the Sustainable Use License (excluding the `.ee.` Enterprise files), OpenRPA tag 1.4.57.13 is under MPL-2.0, and CPython is under PSF-2.0.
